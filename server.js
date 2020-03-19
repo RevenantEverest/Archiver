@@ -3,9 +3,8 @@ require('dotenv').config();
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
-bot.on("message", (message) => {
-    if(message.content.toLowerCase() === "ping")
-        return message.channel.send("Pong!");
-});
+bot.on("ready", () => require('./controllers/DiscordEvents/onReady')(bot));
+bot.on("message", (message) => require('./controllers/DiscordEvents/onMessage')(bot, message));
+bot.on("error", (err) => require('./controllers/DiscordEvents/onError')(bot, err));
 
 bot.login(process.env.DISCORD_TOKEN);
