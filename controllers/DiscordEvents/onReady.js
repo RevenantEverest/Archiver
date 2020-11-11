@@ -24,7 +24,7 @@ async function setCommands(bot) {
     });
 }
 
-module.exports = (bot) => {
+module.exports = async (bot) => {
 
     setCommands(bot);
 

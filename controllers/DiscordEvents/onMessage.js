@@ -1,7 +1,7 @@
-const { Permissions } = require('discord.js');
+const { Permissions, RichEmbed } = require('discord.js');
 const PREFIX = "$"
 
-module.exports = (bot, message) => {
+module.exports = async (bot, message) => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
 
